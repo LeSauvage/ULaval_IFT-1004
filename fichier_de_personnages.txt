@@ -1,7 +1,8 @@
 Sorcier;Gwyr;6;6;15
-Sorcier;Pied de chêne;19;7;4
+Guerrier;Cetautomatix;98;8;43
 Guerrier;Lucius Fleurdelotus;14;14;52
 Guerrier;SkyDragon;14;14;26
+Sorcier;Pied de chêne;19;19;4
 Sorcier;Caius Marchéopus;19;19;19
 Guerrier;Heian;20;20;25
 Sorcier;Nuage bleu;22;22;3
@@ -37,4 +38,3 @@ Guerrier;Cetautomatix;96;96;32
 Guerrier;Odalix;97;97;9
 Guerrier;Dragon de Lune;97;97;58
 Sorcier;Des sorbiers;98;98;5
-Guerrier;Cetautomatix;98;98;43

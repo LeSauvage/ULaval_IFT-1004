@@ -1,9 +1,15 @@
+import csv
+import sys
 from tkinter.filedialog import *
 from tkinter import simpledialog
+
+import sorcier
 from sorcier import Sorcier
 from guerrier import Guerrier
+import pandas
+import numpy
 
- 
+
 class Util:
     """
     Classe utilitaire comportant uniquement des méthodes statiques.
@@ -23,8 +29,16 @@ class Util:
         Returns:
 
         """
+        with open(fichier, newline='') as f:
+            reader = csv.reader(f)
+            liste_personnages = list(reader)
+        f.close()
+
         try:
-            pass
+            with open(fichier, 'r', encoding='utf-8', newline='') as f:
+                reader = csv.reader(f)
+                liste_personnages = list(reader)
+            f.close()
         except Exception:
             print(sys.stderr, "erreur d'execution dans gestionOuvrir")
             sys.exit(1)
@@ -39,7 +53,19 @@ class Util:
             fichier: 
             liste_personnages: 
         """
-        pass
+        try:
+            with open(fichier, 'w', encoding='utf-8', newline='') as t:
+                for i in liste_personnages:
+                    if isinstance(i, Sorcier):
+                        tmp_str = f"Sorcier;{i.nom};{i.energie_depart};{i.energie_courante};{i.nb_charmes}"
+                    else:
+                        tmp_str = f"Guerrier;{i.nom};{i.energie_depart};{i.energie_courante};{i.force}"
+                    t.write(f"{tmp_str}\n")
+                print(liste_personnages)
+            t.close()
+            return True
+        except Exception:
+            return False
 
     @staticmethod
     def saisir_objet_entier(question):
